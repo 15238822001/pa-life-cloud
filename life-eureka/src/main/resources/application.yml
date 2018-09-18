@@ -1,0 +1,19 @@
+#端口号修改为8000
+server:
+  port: 8000
+
+#eureka实例，不注册自己
+#所以 registerWithEureka=false
+#不获取注册信息 fetchRegistry=false
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  application:
+    name: eureka-server
